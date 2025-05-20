@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr"><!--<![endif]--><head>
+<meta charset="utf-8">
+<title>Weak Session</title>
+<meta name="description" content="">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:regular,bold"> 
+<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
+<style>.bg-warning { background-color: rgb(252, 248, 227); }</style>
+<body id="home" cz-shortcut-listen="true">
+<section class="main">
+<div id="Content" class="wrapper topSection">
+	<div id="Header">
+	<div class="wrapper">
+		<div class="logo"><h1><img src="/assets/images/logo1.png">Hotel - Le Gros Dodo</h1></div>
+		</div>
+	</div>
+</div>
+</section>
+<section class="container spacing" style="max-width: 600px;">
+    {% if status == 0 %}
+     <form method="post">
+      <div class="pt-6 bg-primary text-white">Connexion invité : guest / guest.</div>
+      <div class="form-group">
+        <label for="login">Login</label>
+        <input type="text" class="form-control" name="login" id="login" autocomplete="off" aria-describedby="emailHelp" placeholder="Login">
+      </div>
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" class="form-control" name="password" id="password" autocomplete="off" placeholder="Mot de passe">
+      </div>
+      <button type="submit" class="btn btn-primary">Se connecter</button>
+    </form>
+    {% elseif status == 1 %}
+        <div class="pt-6 bg-warning text-white">Vous n'êtes pas <b>admin</b> !</div>
+    {% elseif status == 2 %}
+        <div class="pt-6 bg-info text-white">Le flag est : <b>{{ flag }}</b></div>
+    {% endif %}
+</section>
+<section class="features spacing">
+  <div class="container">
+    <h2 class="text-center">Informations</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="featuresPro">
+          <div class="col-md-3 col-sm-3 col-xs-3 text-center"><img src="/assets/images/icon-1.png" data-at2x="img/icon-1@2x.png" alt="Features"></div>
+          <div class="col-md-9 col-sm-9 col-xs-9"> 
+            <!--features 1-->
+            <h4>Lorem ipsum</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae, esse, aspernatur, alias odio numquam incidunt perspiciatis aliquid voluptate sapiente.</p>
+            <!--features 1 end--> 
+          </div>
+        </div>
+        <div class="featuresPro">
+          <div class="col-md-3 col-sm-3 col-xs-3 text-center"><img src="/assets/images/icon-2.png" data-at2x="img/icon-2@2x.png" alt="Features"></div>
+          <div class="col-md-9 col-sm-9 col-xs-9"> 
+            <!--features 2-->
+            <h4>Lorem ipsum</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae, esse, aspernatur, alias odio numquam incidunt perspiciatis aliquid voluptate sapiente.</p>
+            <!--features 2 end--> 
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="featuresPro">
+          <div class="col-md-3 col-sm-3 col-xs-3 text-center"><img src="/assets/images/icon-3.png" data-at2x="img/icon-3@2x.png" alt="Features"></div>
+          <div class="col-md-9 col-sm-9 col-xs-9"> 
+            <!--features 3-->
+            <h4>Lorem ipsum </h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae, esse, aspernatur, alias odio numquam incidunt perspiciatis aliquid voluptate sapiente.</p>
+            <!--features 3 end--> 
+          </div>
+        </div>
+        <div class="featuresPro">
+          <div class="col-md-3 col-sm-3 col-xs-3 text-center"><img src="/assets/images/icon-4.png" data-at2x="img/icon-4@2x.png" alt="Features"></div>
+          <div class="col-md-9 col-sm-9 col-xs-9"> 
+            <!--features 4-->
+            <h4>Lorem ipsum</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae, esse, aspernatur, alias odio numquam incidunt perspiciatis aliquid voluptate sapiente.</p>
+            <!--features 4 end--> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>console.log(`
+ ▄████▄▓██   ██▓ ██▀███   ██░ ██  ▄▄▄      ▓█████▄ ▓█████   ██████ 
+▒██▀ ▀█ ▒██  ██▒▓██ ▒ ██▒▓██░ ██▒▒████▄    ▒██▀ ██▌▓█   ▀ ▒██    ▒ 
+▒▓█    ▄ ▒██ ██░▓██ ░▄█ ▒▒██▀▀██░▒██  ▀█▄  ░██   █▌▒███   ░ ▓██▄   
+▒▓▓▄ ▄██▒░ ▐██▓░▒██▀▀█▄  ░▓█ ░██ ░██▄▄▄▄██ ░▓█▄   ▌▒▓█  ▄   ▒   ██▒
+▒ ▓███▀ ░░ ██▒▓░░██▓ ▒██▒░▓█▒░██▓ ▓█   ▓██▒░▒████▓ ░▒████▒▒██████▒▒
+░ ░▒ ▒  ░ ██▒▒▒ ░ ▒▓ ░▒▓░ ▒ ░░▒░▒ ▒▒   ▓▒█░ ▒▒▓  ▒ ░░ ▒░ ░▒ ▒▓▒ ▒ ░
+  ░  ▒  ▓██ ░▒░   ░▒ ░ ▒░ ▒ ░▒░ ░  ▒   ▒▒ ░ ░ ▒  ▒  ░ ░  ░░ ░▒  ░ ░
+░       ▒ ▒ ░░    ░░   ░  ░  ░░ ░  ░   ▒    ░ ░  ░    ░   ░  ░  ░  
+░ ░     ░ ░        ░      ░  ░  ░      ░  ░   ░       ░  ░      ░  
+░       ░ ░                                 ░              ®Cyrhades`);</script></body></html>
