@@ -1,90 +1,115 @@
 <!DOCTYPE html>
-<html lang="fr"><!--<![endif]--><head>
-<meta charset="utf-8">
-<title>Weak Session</title>
-<meta name="description" content="">
-<meta http-equiv="X-UA-Compatible" content="chrome=1">
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:regular,bold"> 
-<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
-<style>.bg-warning { background-color: rgb(252, 248, 227); }</style>
-<body id="home" cz-shortcut-listen="true">
-<section class="main">
-<div id="Content" class="wrapper topSection">
-	<div id="Header">
-	<div class="wrapper">
-		<div class="logo"><h1><img src="/assets/images/logo1.png">Hotel - Le Gros Dodo</h1></div>
-		</div>
-	</div>
-</div>
-</section>
-<section class="container spacing" style="max-width: 600px;">
-    {% if status == 0 %}
-     <form method="post">
-      <div class="pt-6 bg-primary text-white">Connexion invité : guest / guest.</div>
-      <div class="form-group">
-        <label for="login">Login</label>
-        <input type="text" class="form-control" name="login" id="login" autocomplete="off" aria-describedby="emailHelp" placeholder="Login">
-      </div>
-      <div class="form-group">
-        <label for="password">Mot de passe</label>
-        <input type="password" class="form-control" name="password" id="password" autocomplete="off" placeholder="Mot de passe">
-      </div>
-      <button type="submit" class="btn btn-primary">Se connecter</button>
-    </form>
-    {% elseif status == 1 %}
-        <div class="pt-6 bg-warning text-white">Vous n'êtes pas <b>admin</b> !</div>
-    {% elseif status == 2 %}
-        <div class="pt-6 bg-info text-white">Le flag est : <b>{{ flag }}</b></div>
-    {% endif %}
-</section>
-<section class="features spacing">
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Hotel - Le Gros Dodo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: 'PT Sans Narrow', sans-serif;
+      background: #f8f9fa;
+    }
+    header {
+      background: url('/assets/images/hotel-bg.jpg') no-repeat center center;
+      background-size: cover;
+      color: white;
+      padding: 60px 0;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    }
+    header h1 {
+      font-size: 3rem;
+    }
+    .logo img {
+      height: 160px;
+    }
+    .login-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .featuresPro {
+      margin-bottom: 30px;
+    }
+    .featuresPro img {
+      max-width: 60px;
+      margin-bottom: 15px;
+    }
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      background: #343a40;
+      color: white;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<header class="text-center">
   <div class="container">
-    <h2 class="text-center">Informations</h2>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="featuresPro">
-          <div class="col-md-3 col-sm-3 col-xs-3 text-center"><img src="/assets/images/icon-1.png" data-at2x="img/icon-1@2x.png" alt="Features"></div>
-          <div class="col-md-9 col-sm-9 col-xs-9"> 
-            <!--features 1-->
-            <h4>Lorem ipsum</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae, esse, aspernatur, alias odio numquam incidunt perspiciatis aliquid voluptate sapiente.</p>
-            <!--features 1 end--> 
-          </div>
+    <div class="align-items-center justify-content-center mb-4">
+      <div class="logo"><img src="/assets/images/logo1.png" alt="Logo Hôtel"></div>
+      <h1>Hôtel Le Gros Dodo</h1>
+    </div>
+    <p class="lead">Un havre de paix au cœur de la nature</p>
+  </div>
+</header>
+
+<main class="container my-5">
+  <section class="login-box mx-auto" style="max-width: 500px;">
+    {% if status == 0 %}
+      <form method="post">
+        <div class="alert alert-primary">Connexion invité : guest / guest</div>
+        <div class="mb-3">
+          <label for="login" class="form-label">Login</label>
+          <input type="text" class="form-control" id="login" name="login" placeholder="Votre identifiant">
         </div>
-        <div class="featuresPro">
-          <div class="col-md-3 col-sm-3 col-xs-3 text-center"><img src="/assets/images/icon-2.png" data-at2x="img/icon-2@2x.png" alt="Features"></div>
-          <div class="col-md-9 col-sm-9 col-xs-9"> 
-            <!--features 2-->
-            <h4>Lorem ipsum</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae, esse, aspernatur, alias odio numquam incidunt perspiciatis aliquid voluptate sapiente.</p>
-            <!--features 2 end--> 
-          </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Mot de passe</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe">
         </div>
+        <button type="submit" class="btn btn-success w-100">Se connecter</button>
+      </form>
+    {% elseif status == 1 %}
+      <div class="alert alert-warning text-center">Vous n'êtes pas <strong>admin</strong> !</div>
+    {% elseif status == 2 %}
+      <div class="alert alert-info text-center">Le flag est : <strong>{{ flag }}</strong></div>
+    {% endif %}
+  </section>
+
+  <section class="my-5">
+    <h2 class="text-center mb-4">Nos services</h2>
+    <div class="row text-center">
+      <div class="col-md-3">
+        <img src="/assets/images/icon-1.png" alt="Chambres confort" class="mb-2">
+        <h5>Activités en plein air</h5>
+        <p>Randonnées, vélo, balades à cheval : profitez de la nature environnante.</p>
       </div>
-      <div class="col-md-6">
-        <div class="featuresPro">
-          <div class="col-md-3 col-sm-3 col-xs-3 text-center"><img src="/assets/images/icon-3.png" data-at2x="img/icon-3@2x.png" alt="Features"></div>
-          <div class="col-md-9 col-sm-9 col-xs-9"> 
-            <!--features 3-->
-            <h4>Lorem ipsum </h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae, esse, aspernatur, alias odio numquam incidunt perspiciatis aliquid voluptate sapiente.</p>
-            <!--features 3 end--> 
-          </div>
-        </div>
-        <div class="featuresPro">
-          <div class="col-md-3 col-sm-3 col-xs-3 text-center"><img src="/assets/images/icon-4.png" data-at2x="img/icon-4@2x.png" alt="Features"></div>
-          <div class="col-md-9 col-sm-9 col-xs-9"> 
-            <!--features 4-->
-            <h4>Lorem ipsum</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, beatae, esse, aspernatur, alias odio numquam incidunt perspiciatis aliquid voluptate sapiente.</p>
-            <!--features 4 end--> 
-          </div>
-        </div>
+      <div class="col-md-3">
+        <img src="/assets/images/icon-2.png" alt="Petit déjeuner" class="mb-2">
+        <h5>Petit-déjeuner inclus</h5>
+        <p>Buffet à volonté chaque matin avec produits locaux et bio.</p>
+      </div>
+      <div class="col-md-3">
+        <img src="/assets/images/icon-3.png" alt="Spa et bien-être" class="mb-2">
+        <h5>Spa & bien-être</h5>
+        <p>Détendez-vous dans notre spa avec jacuzzi, sauna et soins relaxants.</p>
+      </div>
+      <div class="col-md-3">
+        <img src="/assets/images/icon-4.png" alt="Activités extérieures" class="mb-2">
+        <h5>Chambres tout confort</h5>
+        <p>Nos chambres spacieuses avec vue sur le jardin garantissent un sommeil réparateur.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Hôtel Le Gros Dodo. Tous droits réservés.</p>
+</footer>
 
 
 <script>console.log(`
