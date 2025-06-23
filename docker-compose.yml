@@ -13,7 +13,6 @@ services:
     volumes:
       - web:/var/www/html
   composer:
-    container_name: composer_install
     image: composer
     volumes:
       - web:/app
