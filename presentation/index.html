@@ -16,6 +16,25 @@
     <link rel="stylesheet" href="./assets/css/namari-color.css">
     <!--Google Webfonts-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Vérifie si la fenêtre est dans une iframe
+            if (window.self !== window.top) {
+                document.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', (event) => {
+                    const a = event.target.closest('a[href^="http"]');
+                    if (a) {
+                    event.preventDefault();
+                    window.parent.postMessage({
+                        type: "open-external",
+                        url: a.href
+                    }, "*");
+                    }
+                });
+                });
+            }
+        });
+    </script>
 </head>
 <body>
 
@@ -49,12 +68,16 @@
                         <h3>Apprentissage</h3>
                         <h2 class="section-title">Documentations et Vidéos</h2>
                         <p class="section-subtitle">
-                            <ul id="docs" class="col-1">
-                                <li>Connaitre le fonctionnement des sessions</li>
-                                <li>
-                                    <a target="_blank" href="https://ctfs.cyrhades.fr/OWASP-CheatSheets/cheatsheets/Session_Management_Cheat_Sheet.html">OWASP Session Management Cheat Sheet</a>
-                                </li>
-                            </ul>
+                             <a href="javascript:alert('Bientot disponible');">
+                                <img src="./assets/images/pdf.png" />
+                                Connaitre le fonctionnement des sessions
+                            </a>
+                            <br />
+                            <a target="_blank" href="https://ctfs.cyrhades.fr/OWASP-CheatSheets/cheatsheets/Session_Management_Cheat_Sheet.html">
+                                <img src="./assets/images/link.png" />
+                                OWASP Session Management Cheat Sheet
+                            </a>
+                            <br />
                         </p>
                     </div>
                 </div> 
