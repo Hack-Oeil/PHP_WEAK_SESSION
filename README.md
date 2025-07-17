@@ -11,7 +11,7 @@ Dans ce challenge l'objectif est de deviner l'id de session de l'admin pour se c
 
 
 ## Aperçu
-![.docker/infos/capture.jpg](.docker/infos/capture.jpg)
+![presentation/assets/images/capture.jpg](presentation/assets/images/capture.jpg)
 
 
 -----------
