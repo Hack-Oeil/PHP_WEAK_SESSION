@@ -1,6 +1,6 @@
 version: '3.9'
 services:
-  webserver:
+  ho-webserver:
     build:
       context: ./.docker/server_http
       args:
