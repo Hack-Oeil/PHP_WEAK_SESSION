@@ -21,3 +21,5 @@ services:
     command: composer install --ignore-platform-reqs
 volumes:
   web:
+    labels:
+      ho.ctf.cyrhades: "1"
