@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
-  --primary-color: #d4af37; /* Gold */
+  --primary-color: #d4af37;
+  /* Gold */
   --primary-hover: #b5952f;
-  --bg-dark: #0f172a; /* Slate dark */
+  --bg-dark: #0f172a;
+  /* Slate dark */
   --bg-card: rgba(15, 23, 42, 0.6);
   --text-light: #f8fafc;
   --text-muted: #94a3b8;
@@ -20,7 +22,12 @@ body {
   flex-direction: column;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Playfair Display', serif;
   color: var(--primary-color);
 }
@@ -37,7 +44,10 @@ header {
 header::before {
   content: '';
   position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.9));
   z-index: 1;
 }
@@ -55,7 +65,7 @@ header .container {
 
 header h1 {
   font-size: 4rem;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
   margin-bottom: 10px;
 }
 
@@ -75,7 +85,9 @@ header p.lead {
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  max-width: 400px;
+  min-width: 400px;
+  width: max-content;
+  max-width: 100%;
   margin-top: -80px;
   position: relative;
   z-index: 10;
@@ -139,11 +151,13 @@ header p.lead {
   color: var(--primary-color);
 }
 
-.alert-warning, .alert-info {
+.alert-warning,
+.alert-info {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--text-light);
   backdrop-filter: blur(5px);
+  overflow-x: auto;
 }
 
 .service-card {
@@ -185,7 +199,8 @@ header p.lead {
 }
 
 .service-card:hover .service-icon-wrapper img {
-  filter: invert(10%) sepia(18%) saturate(1476%) hue-rotate(182deg) brightness(97%) contrast(97%); /* bg-dark color equivalent roughly */
+  filter: invert(10%) sepia(18%) saturate(1476%) hue-rotate(182deg) brightness(97%) contrast(97%);
+  /* bg-dark color equivalent roughly */
 }
 
 .service-card h5 {
@@ -209,7 +224,7 @@ footer {
   flex-shrink: 0;
   padding: 30px 0;
   background: #080b14;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   text-align: center;
   color: var(--text-muted);
 }
@@ -218,13 +233,16 @@ footer {
 ::-webkit-scrollbar {
   width: 10px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg-dark);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--primary-color);
   border-radius: 5px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-hover);
 }
