@@ -1,4 +1,3 @@
-version: '3.9'
 services:
   ho-webserver:
     build:
@@ -6,7 +5,9 @@ services:
       args:
         TIMEZONE: ${TIMEZONE}
     environment:
+      - HOOS_CTF_EMAIL=${HOOS_CTF_EMAIL:-}
       - HOOS_CTF_USERNAME=${HOOS_CTF_USERNAME:-}
+      - LANGUAGE=${LANGUAGE:-fr}
     labels:
       ho.ctf.cyrhades: "1"
     ports:
@@ -18,7 +19,7 @@ services:
     image: composer
     volumes:
       - web:/app
-    command: composer install --ignore-platform-reqs
+    command: composer install --ignore-platform-req='ext-*'
 volumes:
   web:
     labels:

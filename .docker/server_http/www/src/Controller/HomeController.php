@@ -34,6 +34,7 @@ class HomeController extends AbstractController
             $status = 1;
         }
 
+
         return $this->render('home', ['status' => $status, 'flag' => $this->getFlag('DEFAULT_CTF_FLAG')]);
     }
 }
